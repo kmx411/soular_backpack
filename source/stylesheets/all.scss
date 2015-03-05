@@ -1,7 +1,10 @@
 @charset "utf-8";
 @import "bootstrap";
 
+$screen-xs-max: 768px;
+
 $intro-height: 730px;
+$intro-height-mobile: 500px;
 
 $blue: #4dbce9;
 
@@ -18,6 +21,11 @@ h1 {
   }
 }
 
+h2 {
+  color: $blue;
+  font-size: 50px;
+}
+
 p {
   font-size: 20px;
 }
@@ -26,11 +34,87 @@ p {
   color: white;
 }
 
+.btn-custom-black {
+  background: transparent;
+  border-color: $blue;
+  border-style: solid;
+  color: white;
+  border-width: 2px;
+  padding: 8px 45px;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 100;
+  &:hover {
+    background: $blue;
+    color: black;
+  }
+}
+
+.main-heading-text {
+  width: 300px;
+  position: absolute;
+  z-index: 2;
+}
+
+.main-heading-image {
+  overflow: hidden;
+  float: right;
+}
+
 .introduction {
   background: black;
   height: $intro-height;
   img {
-    overflow: hidden;
     max-height: $intro-height;
+  }
+  #intro-content {
+    top: $intro-height / 2;
+    margin-top: -163px;
+  }
+}
+
+.regular-section {
+  padding: 100px 0;
+  text-align: center;
+  .top-heading {
+    display: inline;
+  }
+  img.logo {
+    width: 335px;
+    margin-top: -42px;
+    margin-left: 25px;
+  }
+  .regular-text-block {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  .mobile-text-center {
+    text-align: center;
+  }
+  .main-heading-text {
+    width: 100%;
+    text-align: center;
+  }
+  .introduction {
+    height: $intro-height-mobile;
+    #intro-content {
+      margin-top: -270px;
+    }
+  }
+  .regular-section {
+    .logo-container {
+      margin-top: 50px;
+    }
+  }
+}
+// the logo in the first section breaks to below the text
+// and we need to remove the -ve margin
+@media screen and (max-width: 551px) {
+  .regular-section {
+    img.logo {
+      margin-top: 20px;
+    }
   }
 }
