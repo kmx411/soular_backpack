@@ -2,7 +2,6 @@
 @import "font-awesome";
 @import "bootstrap";
 @import "compass";
-@import "slider";
 
 $screen-xs-max: 768px;
 
@@ -14,7 +13,7 @@ $green: #d1e751;
 $facebook-blue: #3b5998;
 $twitter-blue: #4099ff;
 
-html {
+html, body {
   overflow-x: hidden;
 }
 
@@ -210,8 +209,21 @@ h3.statistic {
   }
 }
 
-.slider {
+#donate-input {
   margin: 35px 0;
+  span {
+    color: $blue;
+  }
+  input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $blue;
+    color: $blue;
+    font-size: 20px;
+    &:focus {
+      border-bottom: 1px solid $green;
+    }
+  }
 }
 
 @media screen and (max-width: $screen-xs-max) {
