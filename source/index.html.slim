@@ -12,11 +12,21 @@ title: The Soular Backpack
             kids in rural Africa with solar
             powered backpacks so they have a 
             light to do their homework at home.
-        /a.video watch the video
+        /! Button trigger modal
+        button.btn.btn-video data-target="#myModal" data-toggle="modal" type="button" 
+          ' Watch the Video 
+          .fa.fa-play-circle
         br
-        button.btn-lg.btn-custom.btn-black-hover Donate
+        button#top-donate.btn-lg.btn-custom.btn-black-hover Donate
   .col-md-7.hidden-xs.main-heading-image
     img src="images/reading_light.jpg"
+
+/! Video Modal
+#myModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-body
+        iframe width="560" height="315" src="https://www.youtube.com/embed/od4q8FjBBUw" frameborder="0" allowfullscreen
 
 .row.regular-section
   .col-xs-12
@@ -84,12 +94,14 @@ title: The Soular Backpack
 .row.regular-section
   .col-xs-12
     h1 how you can help
-  .col-sm-6.donate-section
+  .col-sm-6.col-lg-4.col-lg-offset-2.donate-section
     .col-xs-12
       h3.blue gift backpacks
+      #donate-slider
+      br
       button.btn-lg.btn-custom.btn-white-hover Donate
 
-  .col-sm-6.social-section
+  .col-sm-6.col-lg-4.social-section
       h3.green spread the word
       .row
         .col-xs-2.col-xs-offset-4
