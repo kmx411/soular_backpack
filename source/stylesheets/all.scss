@@ -1,5 +1,8 @@
 @charset "utf-8";
+@import "font-awesome";
 @import "bootstrap";
+@import "compass";
+@import "slider";
 
 $screen-xs-max: 768px;
 
@@ -7,10 +10,21 @@ $intro-height: 730px;
 $intro-height-mobile: 500px;
 
 $blue: #4dbce9;
+$green: #d1e751;
+$facebook-blue: #3b5998;
+$twitter-blue: #4099ff;
+
+html {
+  overflow-x: hidden;
+}
 
 h1, p, a {
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
+}
+
+h4, h3, h1, p {
+  text-align: center;
 }
 
 h1 {
@@ -23,7 +37,14 @@ h1 {
 
 h2 {
   color: $blue;
-  font-size: 50px;
+  font-size: 30px;
+  font-weight: 100;
+  margin-bottom: 50px;
+}
+
+h4 {
+  font-weight: 200;
+  font-size: 23px;
 }
 
 p {
@@ -34,11 +55,42 @@ p {
   color: white;
 }
 
-.btn-custom-black {
+.green {
+  color: $green;
+}
+
+.blue {
+  color: $blue;
+}
+
+.fa-facebook {
+  color: $facebook-blue;
+  &:hover {
+    border: none;
+    color: $blue;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.fa-twitter {
+  color: $twitter-blue;
+  &:hover {
+    border: none;
+    color: $blue;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.statistic-title {
+  margin-top: 10px;
+}
+
+.btn-custom {
   background: transparent;
   border-color: $blue;
   border-style: solid;
-  color: white;
   border-width: 2px;
   padding: 8px 45px;
   border-radius: 3px;
@@ -46,7 +98,20 @@ p {
   font-weight: 100;
   &:hover {
     background: $blue;
+  }
+}
+
+.btn-black-hover {
+  color: white;
+  &:hover {
     color: black;
+  }
+}
+
+.btn-white-hover {
+  color: $blue;
+  &:hover {
+    color: white;
   }
 }
 
@@ -54,6 +119,9 @@ p {
   width: 300px;
   position: absolute;
   z-index: 2;
+  h1, p {
+    text-align: left;
+  }
 }
 
 .main-heading-image {
@@ -74,7 +142,7 @@ p {
 }
 
 .regular-section {
-  padding: 100px 0;
+  padding: 100px 0 0;
   text-align: center;
   .top-heading {
     display: inline;
@@ -87,6 +155,45 @@ p {
   .regular-text-block {
     margin-top: 50px;
   }
+  &:last-of-type {
+    margin-bottom: 50px;
+  }
+}
+
+h3.statistic {
+  font-size: 50px;
+  font-weight: 100;
+}
+
+.cause-stats {
+  margin-top: 75px;
+}
+
+.backpack-image-wrap {
+  @include background-image(linear-gradient(white 67%, #ececec));
+}
+.backpack-image {
+  background-image: url('/images/backpack.png');
+  background-repeat: no-repeat;
+  height: 477px;
+  background-size: 566px;
+  background-position: center 72px;
+}
+
+.wearing-bag-wrap {
+  padding: 0;
+}
+.wearing-bag-image {
+  height: 500px;
+  background-image: url("/images/backpack_wearing.jpg");
+  background-size: 1300px;
+  background-repeat: no-repeat;
+}
+
+.social-section {
+  h3 {
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: $screen-xs-max) {
@@ -96,6 +203,9 @@ p {
   .main-heading-text {
     width: 100%;
     text-align: center;
+    h1, p {
+      text-align: center;
+    }
   }
   .introduction {
     height: $intro-height-mobile;
@@ -107,6 +217,18 @@ p {
     .logo-container {
       margin-top: 50px;
     }
+  }
+  .formula-section {
+    .fa-sun-o, .fa-suitcase {
+      margin-top: 30px;
+    }
+  }
+  .backpack-image {
+    height: 391px;
+    background-size: 360px;
+  }
+  .wearing-bag-image {
+    background-position-x: -94px;
   }
 }
 // the logo in the first section breaks to below the text
