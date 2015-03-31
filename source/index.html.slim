@@ -103,6 +103,11 @@ title: The Soular Backpack
       br
       button#donate-final.btn-lg.btn-custom.btn-white-hover Donate
 
+form action="https://backpack-stripe.herokuapp.com/" method="POST" 
+  script.stripe-button data-amount="100" data-key="pk_live_rbhzYGBFKsQdIq6MVQpe6gjI" src="https://checkout.stripe.com/checkout.js" 
+  input name="amount" type="hidden" value="100" 
+
+
   .col-sm-6.col-lg-4.social-section
       h3.green spread the word
       .row

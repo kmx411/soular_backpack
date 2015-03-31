@@ -186,7 +186,7 @@ h3.statistic {
   @include background-image(linear-gradient(white 67%, #ececec));
 }
 .backpack-image {
-  background-image: url('/images/backpack.png');
+  background-image: url('../images/backpack.png');
   background-repeat: no-repeat;
   height: 477px;
   background-size: 566px;
@@ -198,7 +198,7 @@ h3.statistic {
 }
 .wearing-bag-image {
   height: 500px;
-  background-image: url("/images/backpack_wearing.jpg");
+  background-image: url("../images/backpack_wearing.jpg");
   background-size: 1300px;
   background-repeat: no-repeat;
 }

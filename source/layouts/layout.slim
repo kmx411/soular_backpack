@@ -10,9 +10,11 @@ html
     /! Use title if it's in the page YAML frontmatter
     title = data.page.title || "The Middleman"
 
-    == stylesheet_link_tag "normalize", "all"
+    link rel="stylesheet" href="stylesheets/normalize.css"
+    link rel="stylesheet" href="stylesheets/all.css"
     script src="//code.jquery.com/jquery-1.11.2.min.js"
-    == javascript_include_tag  "all"
+    script src="https://checkout.stripe.com/checkout.js"
+    script src="javascripts/all.js"
 
   body class="#{page_classes}"
     .container-fluid
