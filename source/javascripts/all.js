@@ -1,6 +1,12 @@
 //= require_tree .
 $(document).ready( function() {
 
+  if (window.location.protocol != "https:") { 
+    window.location.replace("https:" + window.location.href.substring(window.location.protocol.length));
+  }
+
+  window.amount = 1000;
+
   $('button#top-donate').click( function() {
     var height = $(document).height()
     $('html, body').animate({ 
@@ -10,20 +16,37 @@ $(document).ready( function() {
 
   var handler = StripeCheckout.configure({
     key: 'pk_live_rbhzYGBFKsQdIq6MVQpe6gjI',
-    image: '/img/documentation/checkout/marketplace.png',
     token: function(token) {
-      // Use the token to create the charge with a server-side script.
-      // You can access the token ID with `token.id`
+      $.ajax({
+        method: "POST",
+        url: "https://backpack-stripe.herokuapp.com/",
+        data: {
+          amount: window.amount,
+          description: 'A Donation!',
+          stripeToken: token.id,
+          stripeTokenType: token.type,
+          stripeEmail: token.email
+        },
+        error: function(data, textStatus, errorThrown) {
+          //WORST
+          window.location.replace('https://www.thesoularbackpack.com/thanks')
+        }
+
+      })
     }
   });
+
+  $('.donate-amount').on('keyup', function(){
+    window.amount = parseFloat($('.donate-amount').val()).toFixed(2).replace('.','');
+  })
 
   $('button#donate-final').on('click', function(e) {
     // Open Checkout with further options
     handler.open({
-      name: 'Thesoularbackpack',
-      description: '2 widgets',
+      name: 'The Soular Backpack',
+      description: 'A Donation!',
       currency: "cad",
-      amount: 1
+      amount: window.amount
     });
     e.preventDefault();
   });
